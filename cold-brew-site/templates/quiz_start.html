@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'template.js') }}"></script>
+
+    <div class="title blond bottom_padding"> Test your knowledge with a QUIZ! </div>
+
+    <div class="subtitle center">
+        <a class="nav-link" href="/quiz/1">
+            <div id="learn_div" class="center height zoom">
+                <button id="learn_button" type="button" class="btn btn-outline-primary">
+                    <img id="title_image" src="https://www.thespruceeats.com/thmb/LINnILG63kG3PSdNQaQU7AiVy_o=/2121x1414/filters:fill(auto,1)/coldbrewcoffeemicrogen-95e6ef2fc2c1411bbcf1cefe5e9e6879.jpg">
+                    <div>
+                        Start Quiz!
+                    </div>
+                </button>
+            </div>
+        </a>
+    </div>
+
+{% endblock %}

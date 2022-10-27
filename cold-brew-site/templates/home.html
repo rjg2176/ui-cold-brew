@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- The home page template -->
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+
+    <div class="title">How to Make Cold Brew Coffee</div>
+
+    <div id="info_container" class="row bottom_padding center half_width">
+        <p class="center bottom_padding"> The Cold brewing process creates a coffee that is flavorful,
+            smooth and mellow, but also one that can hold up for days and still taste fresh.
+            Let's learn how to make some. 
+        </p>
+    </div>
+
+    <div class="subtitle center"> 
+    <!-- Next button -->
+    <a href="/learn/1">
+        <div id="learn_div" class="center height zoom">
+            <button id="learn_button" type="button" class="btn btn-outline-primary">
+                <img id="title_image" src="https://www.inspiredtaste.net/wp-content/uploads/2016/07/Cold-Brew-Recipe-3.jpg">
+                <div>
+                    Learn
+                </div>
+            </button>
+        </div>
+        
+    </a> 
+</div>
+
+{% endblock %}

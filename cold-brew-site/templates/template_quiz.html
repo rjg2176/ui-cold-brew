@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'template.js') }}"></script>
+    <script src="../static/quiz.js"></script>
+
+    <script>
+    	// Get the current element from server.py's data (based on the id of the page)
+        let item = {{item|tojson}} 
+        let counter = {{counter}}
+        console.log(item)
+    </script>
+
+
+    <div class="container">
+        
+        <div class="row question_number">{{item.name}}</div>
+
+        <!-- Template for multiple choice questions -->
+        {% if item.type == "mcq" %}
+
+
+            <div class="content">
+                <div class="row question_text left_padding">
+                    {{item.question}}
+                </div>
+
+                <div class="options"> 
+                    {% for id, choice in item.choices.items() %}
+                    <label id=option_{{id}} class="rounded option btn">{{choice}} <input type="radio" name="radio" value={{id}}></label>
+                    {% endfor %}
+                </div> 
+                <div class="row center check-answer">
+                    <button type="button" class="btn btn-primary check-answer-button">Check Answer</button>
+                </div>
+                <div id="question-result">
+                </div>
+                <div id="question-feedback">
+                </div>
+            </div>
+
+        <!-- For slider questions -->
+        {% elif item.type == "slider" %}
+
+            <div class="row">
+                <div class="col-md-3">
+                    <img class= "quiz_photo" src={{item.image}} alt={{item.alt}}>
+                </div>
+                <div class="col-md-9">
+                    <div class="row question_text">
+                        {{item.question}}
+            
+                    </div>
+                    <div class="row slidecontainer">
+                        <input type="range" min={{item.answer_range[0]}} max={{item.answer_range[1]}} value={{item.answer_range[0]}} class="slider" id="myRange">
+                        <p class="top_padding">Value: <span id="demo"></span></p>
+                    </div>
+                    <div class="row check-answer">
+                        <button type="button" class="btn btn-primary check-answer-button">Check Answer</button>
+                    </div>
+                    <div id="question-result">
+                    </div>
+                    <div id="question-feedback">
+                    </div>
+                </div>
+            </div>
+
+        <!-- If the question type isn't listed, show an error page -->
+        {% else %}
+            <p>Err: No or incorrect question type specified!</p>
+        {% endif %}
+       
+        <!-- The large bottom of the page next button (disabled until they answer the question)-->
+        <div class="row">
+            <button type="button" disabled=false id="next_button" class="btn btn-outline-primary center vert_margin" 
+                onclick="location.href='{{item.next}}'">Go to the next question!</button>
+        </div>
+    </div>
+
+{% endblock %}

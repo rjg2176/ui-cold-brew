@@ -1,0 +1,504 @@
+/* NOTE: This probably needs to be cleaned up still!
+
+Site colors: 
+
+    Hungry Straw Red: #900C3F
+    Coffee Brown: #C4A484
+    Light Grey: #746D75
+    Dark Grey (near-black): #011627
+
+*/
+
+/* Default font color + family */
+
+body {
+    color: #746D75;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Courier New', serif
+}
+
+/* Home Page */
+
+#title_image{
+    display: inline-block;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+.half_width{
+    max-width: 60%;
+}
+img{
+    display: inline-block;
+    max-width:  100%;
+    border-radius: 25px;
+
+}
+.hconstraint{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.rounded{
+    border-radius: 25px;/*95%*/
+    overflow: hidden;
+    transform: translateZ(0px);
+    border: 3px solid #eee;
+}
+
+.rounded2{
+    border-radius: 25px;/*95%*/
+    overflow: hidden;
+    height: 400px;
+    width: 600px;
+    max-width: 70%;
+    max-height: 30%;
+    transform: translateZ(0px);
+    /*border: 2px solid #eee;*/
+}
+.learnheader{
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 20px;
+    text-align:center;
+    font-weight: bold;
+}
+
+
+#video{
+    border-radius: 25px  
+    border-color: #900C3F;
+
+    position:absolute;
+
+    z-index:10;
+}
+
+#video iframe{
+    position:absolute;
+    left:50%;
+    z-index:9;
+}
+
+/* Learn Pages */
+
+.learn_image{
+    max-height:50%;
+    text-align: center;
+
+}
+.outline{
+    outline: 2px solid #C4A484;
+    cursor: grab
+}
+
+.outline:hover{
+    outline: 2px solid #900C3F;
+    cursor: grab;
+}
+.learn_image .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #011627;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+.learn_image:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+#title_image{
+    display: inline-block;
+    border-radius: 25px 25px 0px 0px;
+
+}
+#learn_div{
+    max-width: 50%;
+}
+
+#hint_text{
+    text-align: center;
+}
+
+#container{
+    height: auto;
+    min-height: 100vh;
+}
+
+a{
+    color: #faf8f6;
+}
+
+.link-dark{
+    color: #011627;
+}
+
+.prev_next{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.large_text{
+    font-size: 30px;
+}
+
+/* Quiz Stuff */
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+
+/* Mouse-over effects */
+
+.ui-state-hover{
+    background-color: transparent;
+}
+
+a:hover{
+    color: #faf8f6;
+}
+
+.link-dark:hover{
+    color: #011627  ;
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #900C3F;
+    outline: #011627 2px groove;
+    cursor: pointer;
+}
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #900C3F;
+    outline: #011627 2px groove;
+    cursor: pointer;
+}
+.question_number{
+    font-weight:bold;
+    font-size: 40px;
+    padding-top: 20px;
+    padding-bottom:20px;
+}
+.question_text{
+    font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 30px;
+}
+
+.quiz_photo{
+    width: 100%
+}
+.correct-answer{
+    font-size: 40px;
+    font-weight: 600;
+    color: #8FBC8F;
+}
+/* correct_highlight */
+.correct_highlight{
+    color: white; 
+    background-color: #C4A484;
+    border-color: #8FBC8F !important;
+    text-align: center
+}
+.incorrect_highlight{
+    color: white;
+    background-color: #C4A484;
+    border-color: #900C3F !important;
+    text-align: center
+
+}
+.incorrect-answer{
+    font-size: 40px;
+    font-weight: 600;
+    color: #900C3F;
+}
+.feedback{
+    font-size: 20px;
+}
+
+.center {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.flex{
+    display: flex;
+}
+
+.vert_center {
+    margin: auto auto;
+}
+
+
+
+.btn-primary {
+    color: white;
+    background-color: #900C3F;
+    border-color: #900C3F; 
+}
+.btn-outline-primary {
+    color: #900C3F;
+    border-color: #900C3F;
+}
+.btn-outline-primary:hover {
+    color: white;
+    background-color: #900C3F;
+    border-color: #900C3F; 
+}
+.btn:disabled, .btn:disabled:hover {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent; 
+}
+
+.btn{
+    color: white;
+    background-color: #C4A484;
+    border-color: #C4A484;
+}
+
+.btn:hover{
+    color: white;
+    background-color: #900C3F;
+    border-color: #900C3F; 
+}
+.check-answer-button {
+    margin-top: 20px;
+}
+
+/* Note: The stupid bootstrap buttons would NOT show the correct color when clicked and I spent too long trying to figure
+    the issue out--ended up just using !important for now since I didn't want to deal with learning scss */
+
+.btn.focus, .btn:focus {
+    outline: 0;
+    background-color: #900C3F!important;
+    border-color:#900C3F;
+    box-shadow: 0 0 0 0.2rem rgba(143, 188, 143, 0.5) !important;
+    border-color: #900C3F !important; 
+    box-shadow: none;
+}
+
+.zoom {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.cart_items_row{
+    max-height: 200px;
+}
+
+/* New Learn Template Stuff */
+
+
+/* The CSS above has been specifically modified/added since the start of this project (the goal is to phase out everything below) */ 
+
+    #main_navbar{
+        background-color: #C4A484;
+        color: #faf8f6;
+    }
+    
+    .navbar-brand{
+        background-color: #C4A484;
+        color: #faf8f6;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        margin: 0;
+        vertical-align: middle;
+    }
+
+    .logo{
+        width: 2em;
+        padding-right: 10px;
+        padding-bottom: 7.5px;
+    }
+
+    .grey{
+        background-color: #746D75;
+    }
+
+    #footer{
+        position: relative;
+        bottom: 0;
+        width: 100%;
+
+        background-color: #C4A484;
+        color: #746D75;
+    }
+   
+    .title{
+        font-size: 40px;
+        font-weight: 600;
+        color: #011627;
+        margin: auto;
+        text-align: center;
+        margin-top: 50px;
+        /*padding-left: 20px;*/
+        /* padding-top: 50px;
+        padding-bottom: 50px;
+        margin-bottom: 20px;  */
+    }
+
+    #learn_button{
+        font-size: 40px;
+        width: 100%;
+        border-radius: 25px;
+        padding: 0px;
+    }
+    #learn_button:active{
+        
+        background-color: #900C3F;
+        border-color: #900C3F;
+    }
+
+    .vert_padding{
+        padding-top: 5px;
+        padding-bottom: 35px
+    }
+    .vert_margin{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .top_padding{
+        padding-top: 15px;
+    }
+
+    .bottom_padding{
+        padding-bottom: 15px;
+    }
+
+    .left_padding{
+        padding-left: 20px;
+    }
+
+    .right_padding{
+        padding-right: 20px;
+    }
+
+    .subtitle{
+        font-size: 15px;
+        font-weight: 400;
+
+        color: #746D75;
+
+        padding-top:  30px;
+        padding-left: 20px;
+        padding-bottom: 30px;
+    }
+
+    .error_text{
+        color: #F71735;
+    }
+    .learn_video{
+        width: 100%;
+        height: 600px;
+        text-align: center;
+    }
+    
+    .option {
+        margin-bottom: 1.5rem;
+        padding-top: 1.3rem;
+        padding-bottom: 1.5rem;
+        display: block;
+        height: 70px;
+        /*background-color: #746D75;*/
+        position: relative;
+        width: 100%
+    }
+    
+    .option:hover {
+        background-color: #900C3F;
+        cursor: pointer
+    }
+    
+    .option input {
+        position: absolute;
+        /* opacity: 0; */
+        cursor: pointer;
+        background-color: #900C3F;
+    }
+
+    .options {
+        position: relative;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    input[type="radio"] {
+        /* Add if not using autoprefixer */
+        -webkit-appearance: none;
+        /* Remove most all native input styles */
+        appearance: none;
+        /* For iOS < 15 */
+        background-color: var(--form-background);
+        /* Not removed via appearance */
+        margin-bottom: 0;
+      
+        font: inherit;
+        color: currentColor;
+        width: 1.15em;
+        height: 1.15em;
+        border: 0.15em solid currentColor;
+        border-radius: 50%;
+        transform: translateY(-1.4em);
+      
+        display: grid;
+        place-content: center;
+      }
+      
+      input[type="radio"]::before {
+        content: "";
+        width: 0.65em;
+        height: 0.65em;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em var(--form-control-color);
+        /* Windows High Contrast Mode */
+        background-color: #8FBC8F;
+      }
+      
+      input[type="radio"]:checked::before {
+        transform: scale(1);
+      }
+      
+      input[type="radio"]:focus {
+        outline: max(2px, 0.15em) solid currentColor;
+        outline-offset: max(2px, 0.15em);
+      }

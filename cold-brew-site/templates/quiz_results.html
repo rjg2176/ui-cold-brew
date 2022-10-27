@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'template.js') }}"></script>
+
+    <script>
+        let counter = {{counter}}
+        console.log(counter)
+    </script>
+
+
+    <div class="container">
+        <div class="row question_number">
+            Quiz Results
+        </div>
+
+        <!-- Change feedback based on score -->
+        <div class="center">
+
+            <!-- Your score was goodish -->
+            {% if counter >= 4 %}
+            <img src="https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/07/449938-The-15-Best-Cold-Brew-Coffees-of-2020_Header.jpg">
+
+            <div class="correct-answer">
+                Great Job!      
+            </div>
+
+            <div class="blond top_padding bottom_padding vert_margin">
+                <div class="vert_padding large_text">
+                    Your score was {{counter}}/6
+                </div>
+
+                <div class="feedback">
+                    Want to learn more? Learn how to choose the right coffee bean type <a class="link-dark" href="/learn/3">here!</a>    
+                </div>
+            </div>
+
+            <!-- Your score was badish -->
+            {% else %}
+            <img src="https://blog.upsie.com/wp-content/uploads/2021/09/1054x512-laptop-Organic-blog127-v1-copy.jpg">
+
+            <div class="incorrect-answer">
+                Nice Try!  
+            </div>
+
+            <div class="blond top_padding bottom_padding vert_margin">
+                
+                <div class="vert_padding large_text">
+                    Your score was {{counter}}/6
+                </div>
+
+                <div class="feedback">
+                    Review the <a class="link-dark" href="/">cold brew process</a> again to master it in no time!
+                </div>
+            </div>
+            {% endif %}
+
+            <a class="nav-link" href="/"><button type="button" class="btn btn-outline-primary vert_margin">Go back home</button></a>
+        </div>
+    </div>
+
+{% endblock %}

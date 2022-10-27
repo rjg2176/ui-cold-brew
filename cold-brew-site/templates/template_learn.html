@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'template.js') }}"></script>
+    <script src="../static/learn.js"></script>
+    
+    <script>
+    	// Get the current element from server.py's data (based on the id of the page)
+        let item = {{item|tojson}};
+        console.log(item)
+    </script>
+
+
+    <div class="container">
+
+        <!-- The learn page question + text info (on every page) -->
+        <div class="title blond">{{item.name}}</div>
+
+        <div class="content">
+            
+            <div class="row instructions bottom_padding">
+                <div class="center vert_padding">{{item.lesson_text}}</div>
+            </div>
+
+    <!-- Select page template/layout based on "type" of learn page data -->
+
+            {% if item.type == "cart" %}
+
+                <div class = "row fixed_height cart_items_row">
+                    <!-- Loop through each of the dictionary items and display them-->
+                    {% for image, description in item.images.items() %}
+
+                        <div id="draggable{{image}}" class="col-md-4 drag learn_image" img_id={{image}}>  
+                            <!-- Image {{image}}:  -->
+                            <img src={{description[0]}} class="learn_image center_image zoom outline">
+                            <span class="tooltiptext">{{description[1]}}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row top_padding">
+                    <div id="droppable" class="col-md-4 center top_padding">  
+                        <!-- The Cart:  -->
+                        <img src={{item.cart}} class=img_fluid>
+                    </div>
+                </div>
+
+            <!-- For drag-to-cart pages -->
+            {% elif item.type == "slider" %}
+
+                <div class = "row">
+                    {% for image, urlitem in item.images.items() %}
+                    <!-- Something wack is happening here -->
+                        {% for url in urlitem %}
+                        {% if url|length > 1 %}
+                            <div class = "col-md-6"> <img src = {{url}} class = "img"></div>
+                        {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                <div class="row center learnheader">
+                            {{item.slider_question}}
+                
+                </div>
+                <div class="row center slidecontainer">
+                        <input type="range" min=0 max=10 value=0 class="slider" id="learnRange1">
+                        <p>Cups: <span id="demo"></span></p>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 flex">  
+                        <button type="button" class="btn btn-outline-primary center check-answer-button">Check Answer</button>
+                    </div>
+                </div>
+
+            <!-- If the question type isn't listed, load what we had before (either a two image page, one image page, or video) -->
+            {% else %} 
+                    
+                {% if item.image_1|length and not item.image_2|length %}
+                <div class = "row center rounded2">
+                    <img src={{item.image_1}} class="hconstraint">
+                </div>
+
+                {% elif item.image_1|length %}
+                <div class = "row">
+                    <img src={{item.image_1}} class=img_fluid>
+                </div>
+
+                {% elif item.image_2|length %}
+                    <div class = "row rounded hconstraint">
+                        <img src = {{item.image_2}} class=img_fluid>
+                    </div>
+
+                {% elif item.video|length %}
+                    <div id="video2" class = "rounded2 row center">
+                        <iframe class = "hconstraint" src = {{item.video}}></iframe>
+                  </div>
+                {% endif %}
+            {% endif %}
+
+        <!-- All pages have a prev and next button -->
+            <div class="row prev_next">
+
+                <div class="col-md-2 flex">  
+                    <button type="button" class="btn btn-outline-primary center" onclick="location.href='{{item.prev}}'">Prev</button>
+                </div>
+
+                <div class="col-md-8">
+                    <div id="hint_text"></div>
+                </div>
+
+                <!-- A bit messy, but this code disables the next button if the question type is a cart one (can extend this to all pages eventually) -->
+                <div class="col-md-2 flex">
+                    <button type="button" 
+                        {% if item.type == "cart" %} disabled=true {% endif %} 
+                        {% if item.type == "slider" %} disabled=true {% endif %} 
+                        id="next_button" class="btn btn-outline-primary center" onclick="location.href='{{item.next}}'">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

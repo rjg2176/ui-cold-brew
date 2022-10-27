@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+
+    <!-- jquery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- Bootstrap CSS (also including the second one for icons) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+    <!-- The Open Sans Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <!-- Our CSS page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+
+    <title>Just Brew It</title>
+    <link rel="icon" href="/static/images/iced_coffee_icon.png">
+  </head>
+
+  <body>
+  <!-- Navbar -->  
+    <nav id="main_navbar" class="navbar navbar-expand-lg">
+      <div class="container">
+            <!-- TODO: Format navbar better. Maybe add it to a navbar but make CSS nice: <div class="navbar-nav"> -->
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/quiz/start">Test Yourself</a>
+          <a class="navbar-brand" href="/"><img class="logo" src="/static/images/iced_coffee_icon.png">Just Brew It</a>
+          <a class="nav-link" href="/learn/3">Pick a Coffee</a>
+          <a class="nav-link" href="/learn/1">Cold Brew</a>
+      </div>
+    </nav>
+
+  <!-- Main Page --> 
+    <div id="container" class="container">   
+        {% block content %}
+        {% endblock %}
+    </div>
+
+  <!-- Footer -->
+    <footer id="footer" class="page-footer font-small fixed-bottom">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2022 Copyright:
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Just Brew It</a>
+      </div>
+    </footer>
+
+  </body>
+</html>
